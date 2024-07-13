@@ -139,7 +139,7 @@ export async function fetchInvoicesPages(query: string) {
     throw new Error('Failed to fetch total number of invoices.');
   }
 }
-
+ 
 export async function fetchInvoiceById(id: string) {
   try {
     const data = await sql<InvoiceForm>`

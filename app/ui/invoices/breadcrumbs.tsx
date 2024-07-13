@@ -1,6 +1,9 @@
+import React from 'react';
 import { clsx } from 'clsx';
 import Link from 'next/link';
-import { lusitana } from '@/app/ui/fonts';
+import { lusitana } from '../../ui/fonts';
+
+
 
 interface Breadcrumb {
   label: string;
