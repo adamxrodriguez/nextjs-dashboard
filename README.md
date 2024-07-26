@@ -1,5 +1,5 @@
-## Next.js App Router Course - Starter
+## Dayboard_Hub
 
-This is the starter template for the Next.js App Router Course. It contains the starting code for the dashboard application.
+Dayboard_Hub is a state-of-the-art web application designed to revolutionize yacht management. It offers a comprehensive suite of features aimed at simplifying the complexities of managing a yacht, including document management, crew scheduling, inventory control, and financial reporting. Utilizing the power of the NextJS, Postgres, React stack, Dayboard_Hub delivers a seamless and dynamic user experience.
 
 For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
