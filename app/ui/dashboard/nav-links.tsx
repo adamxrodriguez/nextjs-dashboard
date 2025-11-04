@@ -5,11 +5,13 @@ import {
   HomeIcon,
   DocumentDuplicateIcon,
   BanknotesIcon,
+  ChartBarIcon,
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 import React from 'react';
+import { isFeatureEnabled } from '@/app/lib/utils';
 
 // Map of links to display in the side navigation.
 // Depending on the size of the application, this would be stored in a database.
@@ -23,6 +25,12 @@ const links = [
   },
   { name: 'Customers', href: '/dashboard/customers', icon: UserGroupIcon },
   { name: 'Revenue', href: '/dashboard', icon: BanknotesIcon },
+  { 
+    name: 'Observability', 
+    href: '/dashboard/observability', 
+    icon: ChartBarIcon,
+    featureFlag: 'enableObservabilityPage' as const,
+  },
 ];
 
 export default function NavLinks() {
@@ -31,6 +39,13 @@ export default function NavLinks() {
   return (
     <>
       {links.map((link) => {
+        // Check feature flag if present
+        if ('featureFlag' in link && link.featureFlag) {
+          if (!isFeatureEnabled(link.featureFlag)) {
+            return null;
+          }
+        }
+
         const LinkIcon = link.icon;
         return (
           <Link

@@ -1,6 +1,23 @@
 import { Revenue } from './definitions';
 import React from 'react';
 
+/**
+ * Feature flags utility
+ * Simple env-based feature toggles for experimental pages
+ */
+export const featureFlags = {
+  enableExperimentalDashboard: process.env.ENABLE_EXPERIMENTAL_DASHBOARD === 'true',
+  enableAnalyticsPage: process.env.ENABLE_ANALYTICS_PAGE === 'true',
+  enableObservabilityPage: process.env.ENABLE_OBSERVABILITY_PAGE === 'true',
+} as const;
+
+/**
+ * Check if a feature is enabled
+ */
+export const isFeatureEnabled = (flag: keyof typeof featureFlags): boolean => {
+  return featureFlags[flag];
+};
+
 
 export const formatCurrency = (amount: number) => {
   return (amount / 100).toLocaleString('en-US', {
