@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Link from 'next/link';
 import NavLinks from '../../ui/dashboard/nav-links';
 import Filters from '../../ui/dashboard/filters';

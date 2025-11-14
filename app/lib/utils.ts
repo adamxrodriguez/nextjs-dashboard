@@ -1,5 +1,4 @@
 import { Revenue } from './definitions';
-import React from 'react';
 
 /**
  * Feature flags utility
