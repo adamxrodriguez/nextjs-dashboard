@@ -60,8 +60,9 @@ test.describe('Navigation', () => {
     await page.goto('/');
     
     // Test that main navigation element exists
-    const logo = page.locator('img[alt*="Dayboard"]');
-    await expect(logo.first()).toBeVisible();
+    // Use exact match to target only the logo text "Dayboard Hub", not "Welcome to Dayboard Hub."
+    const logo = page.getByText('Dayboard Hub', { exact: true });
+    await expect(logo).toBeVisible();
   });
 });
 
