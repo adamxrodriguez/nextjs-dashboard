@@ -5,9 +5,10 @@ import { CardSkeleton } from '@/app/ui/skeletons';
 
 describe('CardSkeleton', () => {
   it('should render the skeleton card', () => {
-    render(<CardSkeleton />);
+    const { container } = render(<CardSkeleton />);
     
-    const card = screen.getByRole('generic');
+    // Check for the main card container with the shimmer class
+    const card = container.querySelector('.rounded-xl.bg-gray-100');
     expect(card).toBeInTheDocument();
   });
 

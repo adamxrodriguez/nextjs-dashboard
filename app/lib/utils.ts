@@ -12,9 +12,15 @@ export const featureFlags = {
 
 /**
  * Check if a feature is enabled
+ * Reads directly from process.env to support dynamic testing
  */
 export const isFeatureEnabled = (flag: keyof typeof featureFlags): boolean => {
-  return featureFlags[flag];
+  const envMap: Record<keyof typeof featureFlags, string> = {
+    enableExperimentalDashboard: 'ENABLE_EXPERIMENTAL_DASHBOARD',
+    enableAnalyticsPage: 'ENABLE_ANALYTICS_PAGE',
+    enableObservabilityPage: 'ENABLE_OBSERVABILITY_PAGE',
+  };
+  return process.env[envMap[flag]] === 'true';
 };
 
 
